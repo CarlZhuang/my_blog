@@ -135,9 +135,10 @@ AUTH_USER_MODEL = 'blog.User'
 
 # 网站基本配置信息
 
-SITE_NAME = "CARL的个人微博"
-SITE_DESC = "人生苦短，请用Python"
+SITE_NAME = 'CARL的个人微博'
+SITE_DESC = '人生苦短，请用Python'
 
 # 文件上传配置
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+

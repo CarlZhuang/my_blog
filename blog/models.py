@@ -57,7 +57,7 @@ class ArticleManager(models.Manager):
         distinct_date_list = []
         date_list = self.values('date_publish')
         for date in date_list:
-            date = date['date_publish'].strftime('%Y/%m文章存档')
+            date = date['date_publish'].strftime('%Y/%m{}').format('文章归档')
             if date not in distinct_date_list:
                 distinct_date_list.append(date)
         return distinct_date_list
@@ -72,7 +72,7 @@ class Article(models.Model):
     is_recommend = models.BooleanField(default=False, verbose_name='是否推荐')
     date_publish = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')
     user = models.ForeignKey(User, verbose_name='用户',on_delete=models.CASCADE,)
-    category = models.ForeignKey(Category, blank=True, null=True, verbose_name='分类',on_delete=models.CASCADE,)
+    category = models.ForeignKey(Category, blank=True, null=True, verbose_name='分类', on_delete=models.CASCADE,)
     tag = models.ManyToManyField(Tag, verbose_name='标签')
 
     objects = ArticleManager()
